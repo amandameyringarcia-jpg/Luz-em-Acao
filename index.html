@@ -1,1 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luz em Ação — Disco de Newton × Piscina Solar do CEP</title>
+<meta name="description" content="Site unificado: o Disco de Newton e o projeto de aquecimento solar da piscina do CEP, ligados pela física da luz — óptica, cor e calor, com acessibilidade física e digital." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+<header class="topbar" id="topo">
+  <div class="topbar__inner">
+    <a class="brand" href="#topo">
+      <span class="brand__mark" aria-hidden="true"></span>
+      <span class="brand__text">Luz em Ação</span>
+    </a>
+
+    <nav class="mainnav" aria-label="Navegação principal" id="mainnav">
+      <ul>
+        <li><a href="#disco">Disco de Newton</a></li>
+        <li><a href="#pesquisa">A pesquisa</a></li>
+        <li><a href="#piscina">Piscina solar</a></li>
+        <li><a href="#robotica">Robótica</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="#acessibilidade">Acessibilidade</a></li>
+        <li><a href="#equipe">Equipe</a></li>
+      </ul>
+    </nav>
+
+    <div class="topbar__tools">
+      <button type="button" id="btn-contraste" class="tool-btn" aria-pressed="false">
+        <span aria-hidden="true">◐</span> Alto contraste
+      </button>
+      <button type="button" id="btn-texto" class="tool-btn" aria-pressed="false">
+        <span aria-hidden="true">A+</span> Texto grande
+      </button>
+      <button type="button" id="btn-menu" class="tool-btn tool-btn--menu" aria-expanded="false" aria-controls="mainnav">
+        <span aria-hidden="true">☰</span> Menu
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__grid">
+      <div class="hero__text">
+        <p class="eyebrow">Projeto Integrador · Física e Tecnociência, Programação e Robótica</p>
+        <h1 id="hero-heading">A mesma luz que se separa em cores no Disco de Newton pode aquecer a piscina do CEP.</h1>
+        <p class="hero__lede">Dois projetos, um só fenômeno: o comportamento da luz branca ao encontrar uma superfície. Aqui você vê o experimento clássico de Newton lado a lado com uma proposta real de aquecimento solar automatizado — e entende, passo a passo, o que liga um ao outro.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#pesquisa">Ver o que liga os dois projetos</a>
+          <a class="btn btn--ghost" href="#disco">Conhecer o Disco de Newton</a>
+        </div>
+      </div>
+
+      <figure class="img-slot img-slot--hero">
+        <img class="img-slot__img" src="Img1.png" alt="imagem de abertura, ligando óptica e aquecimento solar.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img1</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> uma imagem de capa que já sugira a ligação entre os dois temas — por exemplo, o disco de Newton girando de um lado e a piscina/coletor solar do outro, ou uma composição com prisma + água.</p>
+        </div>
+        <figcaption>Fig. 1 — imagem de abertura, ligando óptica e aquecimento solar.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== PARTE 1: DISCO DE NEWTON ===================== -->
+  <section class="section" id="disco" aria-labelledby="disco-heading">
+    <div class="section__kicker">Parte 1 · Óptica clássica</div>
+    <h2 id="disco-heading">Disco de Newton — a soma de todas as cores</h2>
+    <p class="section__intro">O Disco de Newton é um experimento físico educacional que demonstra, a olho nu, como as sete cores do espectro visível se recombinam em branco quando giram em alta velocidade — a mesma ideia que Isaac Newton comprovou com um prisma, há mais de três séculos.</p>
+
+    <div class="disc-demo" role="group" aria-labelledby="disco-demo-heading">
+      <h3 id="disco-demo-heading" class="visually-hidden">Simulação de rotação do disco</h3>
+      <div class="disc-demo__stage">
+        <div class="disc" id="newton-disc" aria-hidden="true"></div>
+      </div>
+      <div class="disc-demo__controls">
+        <button type="button" id="btn-girar" class="btn btn--primary">Acelerar rotação</button>
+        <p class="disc-demo__help">Clique para simular a rotação em alta velocidade e observar a ilusão de fusão das cores em branco. Clique de novo para parar.</p>
+        <p id="disc-status" class="visually-hidden" aria-live="polite">Disco parado. As sete cores estão visíveis separadamente.</p>
+      </div>
+    </div>
+
+    <div class="content-block">
+      <p class="eyebrow">Introdução</p>
+      <h3>Um círculo de cores que engana o olho</h3>
+      <p>O disco de Newton é um experimento físico educacional que explica a luz branca na área da óptica. Consiste em um disco com sete cores <strong>(vermelho, laranja, amarelo, verde, azul, índigo e violeta)</strong>, que gira em alta velocidade, fazendo com que as cores se misturem a olho nu e o disco pareça ficar branco.</p>
+      <p>Essa ilusão ocorre porque nossos olhos não conseguem ver cada cor do disco em alta velocidade separadamente. A imagem de todas as cores fica gravada na nossa mente por um instante curto, criando a ilusão de que elas se misturam em uma só cor branca — um fenômeno conhecido como <strong>persistência retiniana</strong>.</p>
+    </div>
+
+    <div class="content-block content-block--figure-right">
+      <div>
+        <p class="eyebrow">Isaac Newton — quem foi?</p>
+        <h3>O físico que decompôs a luz</h3>
+        <p>Isaac Newton (1643–1727) foi um renomado físico, astrônomo e matemático inglês, criador de estudos e teorias que são utilizados até hoje no mundo todo. É famoso pela formulação das <strong>três leis do movimento</strong> (leis de Newton) e da <strong>lei da gravitação universal</strong>. Também estudou a composição da luz branca, o que conduziu à óptica moderna. Suas obras são referências fundamentais para o estudo da matemática e da física atual.</p>
+      </div>
+      <figure class="img-slot">
+        <img class="img-slot__img" src="Img2.png" alt="Isaac Newton (1643–1727), autor dos estudos que fundamentam o experimento.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img2</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> um retrato de Isaac Newton (pintura ou gravura de época).</p>
+        </div>
+        <figcaption>Fig. 2 — Isaac Newton (1643–1727), autor dos estudos que fundamentam o experimento.</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-block content-block--figure-right">
+      <div>
+        <p class="eyebrow">Seus estudos sobre a luz</p>
+        <h3>O prisma que revelou o espectro</h3>
+        <p>Isaac Newton realizou importantes estudos sobre a luz, utilizando prismas para demonstrar que a luz branca é formada por várias cores. Ao passar pelo prisma, a luz se separava em um espectro de cores, semelhante ao arco-íris.</p>
+        <p>Suas experiências ajudaram a comprovar que as cores fazem parte da própria luz e contribuíram para uma melhor compreensão da formação do arco-íris e de fenômenos relacionados à luz e às cores.</p>
+      </div>
+      <figure class="img-slot">
+        <img class="img-slot__img" src="Img3.png" alt="feixe de luz branca atravessando um prisma e se separando em um espectro de cores.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img3</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> foto ou diagrama de um prisma decompondo um feixe de luz branca em um espectro de cores.</p>
+        </div>
+        <figcaption>Fig. 3 — feixe de luz branca atravessando um prisma e se separando em um espectro de cores.</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-block">
+      <p class="eyebrow">Como funciona o disco de Newton?</p>
+      <h3>Da divisão das cores ao branco aparente</h3>
+      <ol class="steps">
+        <li><span class="steps__num">01</span><div><h4>Divisão das cores</h4><p>O disco é dividido em várias partes, cada uma pintada com uma cor do espectro visível.</p></div></li>
+        <li><span class="steps__num">02</span><div><h4>Rotação</h4><p>Quando o disco começa a girar rapidamente, as cores passam diante dos nossos olhos em sequência.</p></div></li>
+        <li><span class="steps__num">03</span><div><h4>Mistura visual</h4><p>Devido à velocidade da rotação, nossos olhos não conseguem distinguir cada cor separadamente.</p></div></li>
+        <li><span class="steps__num">04</span><div><h4>Aparência branca</h4><p>As cores se misturam visualmente e o disco passa a parecer branco ou esbranquiçado.</p></div></li>
+        <li><span class="steps__num">05</span><div><h4>Conclusão</h4><p>O experimento demonstra que a luz branca pode ser associada à combinação de diferentes cores.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===================== SEÇÃO PONTE: A PESQUISA ===================== -->
+  <section class="section section--bridge" id="pesquisa" aria-labelledby="pesquisa-heading">
+    <div class="section__kicker">A pesquisa que une os dois projetos</div>
+    <h2 id="pesquisa-heading">O que o Disco de Newton tem a ver com a piscina do CEP?</h2>
+    <p class="section__intro">Os dois projetos partem da mesma pergunta de física: <strong>o que acontece quando a luz branca encontra uma superfície?</strong> O Disco de Newton e o coletor solar da piscina respondem essa pergunta de dois jeitos opostos — e é exatamente esse contraste que explica por que escolhemos placas escuras para aquecer água.</p>
+
+    <div class="compare">
+      <div class="compare__card compare__card--disco">
+        <p class="compare__label">Disco de Newton — girando</p>
+        <h3>Todas as cores são refletidas e se somam em branco</h3>
+        <p>O disco pintado com as sete cores do espectro gira rápido o bastante para que o olho não consiga mais separar cada cor. Cada setor continua refletindo sua própria cor normalmente — o que muda é a nossa percepção: a persistência retiniana soma essas reflexões e o cérebro interpreta o resultado como branco. É a <strong>síntese aditiva da luz</strong>: luz mais luz forma mais luz, até chegar ao branco.</p>
+      </div>
+      <div class="compare__vs" aria-hidden="true">×</div>
+      <div class="compare__card compare__card--placa">
+        <p class="compare__label">Placa coletora — parada, na piscina</p>
+        <h3>Todas as cores são absorvidas e viram calor</h3>
+        <p>A placa do coletor solar é pintada de preto fosco de propósito. Uma superfície preta não devolve praticamente nenhuma cor: ela absorve o espectro visível quase inteiro. Essa energia luminosa não vira uma cor nova — ela vira <strong>energia térmica</strong>, aquecendo a água que circula dentro da placa. É o oposto do disco em repouso: em vez de refletir e somar cores, a placa retém a luz e a transforma em calor.</p>
+      </div>
+    </div>
+
+    <figure class="img-slot img-slot--wide">
+        <img class="img-slot__img" src="Img4.png" alt="o mesmo espectro de luz, dois destinos diferentes: virar branco no disco ou virar calor na placa.">
+      <div class="img-slot__box">
+        <span class="img-slot__tag">Img4</span>
+        <p class="img-slot__hint"><strong>O que colocar aqui:</strong> um diagrama comparativo de sua autoria — de um lado o disco girando com uma seta apontando para "branco (reflexão + soma)", do outro a placa preta com uma seta apontando para "calor (absorção)". Pode ser desenhado à mão e fotografado, ou feito digitalmente.</p>
+      </div>
+      <figcaption>Fig. 4 — o mesmo espectro de luz, dois destinos diferentes: virar branco no disco ou virar calor na placa.</figcaption>
+    </figure>
+
+    <div class="content-block">
+      <h3>Por que isso importa para o projeto</h3>
+      <p>Entender o Disco de Newton não é só um exercício sobre óptica: ele explica, na prática, por que a cor de uma superfície decide quanto calor ela absorve do sol. Se a placa do coletor fosse branca, ela se comportaria como o disco girando — refletindo as cores de volta e desperdiçando a energia que deveria virar calor. Como é preta, ela faz o caminho inverso: guarda a luz para si e a converte em temperatura. O mesmo princípio de óptica que faz o disco "sumir" em branco é o que garante que o coletor não desperdice luz solar.</p>
+      <p>Essa é a ponte física entre os dois projetos: um mostra o que os olhos veem quando a luz é somada; o outro mostra o que a água sente quando a luz é retida.</p>
+    </div>
+  </section>
+
+  <!-- ===================== PARTE 2: PISCINA SOLAR ===================== -->
+  <section class="section" id="piscina" aria-labelledby="piscina-heading">
+    <div class="section__kicker">Parte 2 · Física aplicada</div>
+    <h2 id="piscina-heading">Sol na piscina — aquecimento solar térmico para o CEP</h2>
+
+    <div class="stat-row">
+      <div class="stat"><span class="stat__num">3</span><span class="stat__label">frentes de estudo integradas</span></div>
+      <div class="stat"><span class="stat__num">100%</span><span class="stat__label">energia solar como fonte primária</span></div>
+      <div class="stat"><span class="stat__num">1</span><span class="stat__label">piscina térmica do CEP</span></div>
+    </div>
+
+    <div class="content-block">
+      <p class="eyebrow">O problema</p>
+      <h3>Aquecer uma piscina térmica custa caro — e pode custar menos ao planeta</h3>
+      <p>Piscinas térmicas escolares costumam depender de aquecimento a gás ou resistência elétrica, com alto consumo energético e custo recorrente. O desafio do nosso Projeto Integrador foi imaginar uma solução conceitual que usasse o próprio Sol como fonte primária de calor, com um sistema de automação capaz de decidir, sozinho, quando aquecer e quando poupar.</p>
+      <p>Para isso, unimos três frentes de estudo do trimestre: a <strong>física da luz</strong> (óptica aplicada a coletores solares — a mesma óptica do Disco de Newton, na seção acima), a <strong>lógica de sensores e atuadores</strong> (robótica e programação) e o compromisso de tornar o projeto compreensível e acessível a qualquer pessoa da comunidade escolar.</p>
+    </div>
+
+    <div class="content-block content-block--figure-right">
+      <div>
+        <p class="eyebrow">Física e Tecnociência</p>
+        <h3>Três comportamentos da luz, um sistema de aquecimento</h3>
+        <p>Nosso coletor solar não é mágica: é óptica aplicada. Absorção, reflexão e refração explicam por que ele funciona — e por que a escolha de cor e material da placa muda tudo.</p>
+      </div>
+      <figure class="img-slot">
+        <img class="img-slot__img" src="Img5.png" alt="coletores solares térmicos: a cor e o material da superfície definem quanta luz vira calor.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img5</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> foto em close de um coletor solar térmico, mostrando a superfície escura que absorve luz.</p>
+        </div>
+        <figcaption>Fig. 5 — coletores solares térmicos: a cor e o material da superfície definem quanta luz vira calor.</figcaption>
+      </figure>
+    </div>
+
+    <div class="light-cards">
+      <div class="light-card">
+        <h4>Absorção</h4>
+        <p>A placa coletora é escura de propósito: superfícies escuras absorvem quase todo o espectro visível, convertendo a energia luminosa em energia térmica na água que circula por dentro dela.</p>
+      </div>
+      <div class="light-card">
+        <h4>Reflexão</h4>
+        <p>Um refletor posicionado atrás da placa direciona raios que escapariam de volta para o coletor, seguindo a lei da reflexão — ângulo de incidência igual ao ângulo de reflexão — para aproveitar mais luz por metro quadrado.</p>
+      </div>
+      <div class="light-card">
+        <h4>Refração</h4>
+        <p>A cobertura de vidro ou policarbonato do coletor deixa a luz entrar, mas dificulta a saída do calor infravermelho — o mesmo princípio óptico usado em estufas, aplicado em escala de piscina.</p>
+      </div>
+    </div>
+
+    <div class="analogy-row">
+      <div class="analogy">
+        <p class="analogy__tag">Analogia · Disco de Newton</p>
+        <p>Como já vimos na seção <a href="#pesquisa">A pesquisa</a>, quando o disco gira rápido, as sete cores se misturam e o olho enxerga branco. Nas placas do coletor vale o caminho inverso: uma superfície preta não devolve nenhuma cor — ela absorve o espectro inteiro e o transforma em calor.</p>
+      </div>
+      <div class="analogy">
+        <p class="analogy__tag">Analogia · Câmara escura</p>
+        <p>Na câmara escura, um orifício controla exatamente por onde a luz entra, formando uma imagem previsível dentro de uma caixa fechada. O coletor aplica a mesma ideia de "luz controlada em um espaço fechado": a cobertura transparente deixa a radiação entrar, a caixa isolada evita que o calor escape, e o resultado é um ambiente interno previsivelmente mais quente.</p>
+      </div>
+    </div>
+
+    <figure class="img-slot img-slot--wide">
+        <img class="img-slot__img" src="Img6.png" alt="diagrama de câmara escura: luz controlada entrando em um espaço fechado.">
+      <div class="img-slot__box">
+        <span class="img-slot__tag">Img6</span>
+        <p class="img-slot__hint"><strong>O que colocar aqui:</strong> um diagrama de câmara escura, mostrando raios de luz atravessando um pequeno orifício e formando uma imagem invertida na parede oposta.</p>
+      </div>
+      <figcaption>Fig. 6 — diagrama de câmara escura: luz controlada entrando em um espaço fechado.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ===================== ROBÓTICA ===================== -->
+  <section class="section" id="robotica" aria-labelledby="robotica-heading">
+    <div class="section__kicker">Programação e Robótica</div>
+    <h2 id="robotica-heading">Como o sistema decide, sozinho, quando aquecer a piscina</h2>
+    <p class="section__intro">O coletor solar resolve a física; sensores e atuadores resolvem a lógica. O fluxograma abaixo mostra o ciclo de decisão que a automação repetiria continuamente.</p>
+
+    <div class="flow" role="img" aria-describedby="flow-desc">
+      <div class="flow__row">
+        <div class="flow__box">Sensor de temperatura da água</div>
+        <div class="flow__box">Sensor de irradiância solar</div>
+      </div>
+      <div class="flow__arrow" aria-hidden="true">↓</div>
+      <div class="flow__box flow__box--wide">Microcontrolador compara T° atual com T° desejada</div>
+      <div class="flow__arrow" aria-hidden="true">↓</div>
+      <div class="flow__row">
+        <div class="flow__box flow__box--accent">Água fria + sol forte<br>→ liga bomba para o coletor</div>
+        <div class="flow__box">Água na T° ideal<br>→ desliga bomba, recircula direto</div>
+      </div>
+      <div class="flow__arrow" aria-hidden="true">↓</div>
+      <div class="flow__box">Piscina térmica</div>
+    </div>
+    <p id="flow-desc" class="visually-hidden">Fluxograma do sistema de automação da piscina: o sensor de temperatura da água e o sensor de irradiância solar enviam dados ao microcontrolador. O microcontrolador compara a temperatura atual com a temperatura desejada. Se a água estiver mais fria que o alvo e houver sol suficiente, a bomba direciona água para o coletor solar. Se a água já estiver na temperatura ideal, a bomba é desligada e o ciclo recomeça.</p>
+
+    <figure class="img-slot img-slot--wide">
+        <img class="img-slot__img" src="Img7.png" alt="sensores e microcontrolador do protótipo conceitual.">
+      <div class="img-slot__box">
+        <span class="img-slot__tag">Img7</span>
+        <p class="img-slot__hint"><strong>O que colocar aqui:</strong> foto dos sensores e do microcontrolador usados no protótipo conceitual, com fios conectados a um sensor de temperatura submerso.</p>
+      </div>
+      <figcaption>Fig. 7 — sensores e microcontrolador do protótipo conceitual.</figcaption>
+    </figure>
+
+    <div class="component-grid">
+      <div class="component"><h4>Sensor de temperatura</h4><p>Mede continuamente a água da piscina e a saída do coletor solar.</p></div>
+      <div class="component"><h4>Sensor de irradiância</h4><p>Estima se há luz solar suficiente para valer a pena circular a água pelo coletor.</p></div>
+      <div class="component"><h4>Microcontrolador</h4><p>Compara os dados dos sensores com a temperatura desejada e decide a ação, seguindo a lógica do fluxograma.</p></div>
+      <div class="component"><h4>Bomba e válvula (atuadores)</h4><p>Executam a decisão: circulam a água pelo coletor ou mantêm o circuito fechado, economizando energia.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== SIMULADOR ===================== -->
+  <section class="section" id="simulador" aria-labelledby="simulador-heading">
+    <div class="section__kicker">Uso de tecnologias web</div>
+    <h2 id="simulador-heading">Simulador: quanto a cor e o sol aquecem a água?</h2>
+    <p class="section__intro">Um modelo simplificado, só para fins didáticos, estima o ganho de temperatura da água a partir da irradiância solar, da área do coletor, do tempo de exposição e da absortância da superfície — o mesmo conceito explicado na seção da pesquisa, agora em números.</p>
+
+    <form class="simulator" id="simulador-form">
+      <div class="simulator__field">
+        <label for="irradiancia">Irradiância solar (W/m²)</label>
+        <input type="range" id="irradiancia" min="200" max="1100" value="700" step="10">
+        <output for="irradiancia" id="irradiancia-out">700 W/m²</output>
+      </div>
+      <div class="simulator__field">
+        <label for="area">Área do coletor (m²)</label>
+        <input type="range" id="area" min="1" max="40" value="10" step="1">
+        <output for="area" id="area-out">10 m²</output>
+      </div>
+      <div class="simulator__field">
+        <label for="tempo">Tempo de exposição (horas)</label>
+        <input type="range" id="tempo" min="1" max="10" value="4" step="1">
+        <output for="tempo" id="tempo-out">4 h</output>
+      </div>
+      <div class="simulator__field">
+        <label for="volume">Volume de água (m³)</label>
+        <input type="range" id="volume" min="5" max="150" value="50" step="5">
+        <output for="volume" id="volume-out">50 m³</output>
+      </div>
+      <fieldset class="simulator__field">
+        <legend>Superfície do coletor</legend>
+        <label class="radio"><input type="radio" name="superficie" value="0.95" checked> Preta fosca (α ≈ 0,95)</label>
+        <label class="radio"><input type="radio" name="superficie" value="0.55"> Metálica polida (α ≈ 0,55)</label>
+        <label class="radio"><input type="radio" name="superficie" value="0.20"> Branca (α ≈ 0,20)</label>
+      </fieldset>
+
+      <button type="submit" class="btn btn--primary">Calcular aumento de temperatura</button>
+
+      <div class="simulator__result" aria-live="polite">
+        <p class="simulator__result-label">Aumento estimado de temperatura</p>
+        <p class="simulator__result-value" id="resultado">—°C</p>
+        <p class="simulator__result-help" id="resultado-help">Ajuste os controles e clique em calcular para ver a estimativa.</p>
+      </div>
+    </form>
+    <p class="fineprint">Modelo educativo simplificado (Q = I · A · α · t, convertido em ΔT pela capacidade térmica da água), sem considerar perdas de calor — usado apenas para ilustrar, de forma proporcional, o efeito da cor da placa e da exposição solar.</p>
+  </section>
+
+  <!-- ===================== TUTORIAL ===================== -->
+  <section class="section" id="tutorial" aria-labelledby="tutorial-heading">
+    <div class="section__kicker">Tutorial</div>
+    <h2 id="tutorial-heading">Monte o seu próprio disco de Newton</h2>
+
+    <div class="content-block">
+      <h3>Materiais</h3>
+      <ul class="materials">
+        <li>Cartolina</li>
+        <li>Lápis de cor ou tinta</li>
+        <li>Tesoura</li>
+        <li>Régua</li>
+        <li>Lápis</li>
+        <li>Motor</li>
+      </ul>
+    </div>
+
+    <ol class="tutorial-steps">
+      <li>Desenhar um círculo no papel.</li>
+      <li>Dividi-lo em sete partes iguais.</li>
+      <li>Colorir cada parte — vermelho, laranja, amarelo, verde, azul, índigo e violeta.</li>
+      <li>Recortar o círculo e fazer um furo no meio.</li>
+      <li>Conectar o motor ao furo do disco e ligar.</li>
+      <li>Observar o resultado.</li>
+    </ol>
+
+    <figure class="img-slot img-slot--wide">
+        <img class="img-slot__img" src="Img8.png" alt="disco de Newton artesanal, feito em cartolina, pronto para girar.">
+      <div class="img-slot__box">
+        <span class="img-slot__tag">Img8</span>
+        <p class="img-slot__hint"><strong>O que colocar aqui:</strong> foto do disco de Newton artesanal montado em cartolina, pronto para ser acoplado ao motor.</p>
+      </div>
+      <figcaption>Fig. 8 — disco de Newton artesanal, feito em cartolina, pronto para girar.</figcaption>
+    </figure>
+
+    <div class="content-block">
+      <p class="eyebrow">O que aprendemos?</p>
+      <h3>Da física abstrata à experiência visual</h3>
+      <p>No geral, aprendemos que a luz branca é composta por várias cores, e o Disco de Newton demonstra isso ao reunir essas cores em um círculo. Quando o disco gira rapidamente, as cores passam diante dos olhos em sequência e são percebidas quase ao mesmo tempo, fazendo com que o cérebro interprete essa combinação como uma cor próxima do branco.</p>
+      <p>O Disco de Newton ajuda estudantes a aprender sobre fenômenos da luz porque transforma um conceito da Física, que pode parecer abstrato e difícil de compreender, em uma experiência visual e prática. Ao construir e girar o disco, os alunos conseguem observar diretamente a luz branca e entender os conceitos de luz e percepção visual.</p>
+      <blockquote>O experimento mostra como a combinação das cores da luz e a velocidade de percepção dos nossos olhos influenciam o que enxergamos.</blockquote>
+    </div>
+  </section>
+
+  <!-- ===================== CURIOSIDADES ===================== -->
+  <section class="section" id="curiosidades" aria-labelledby="curiosidades-heading">
+    <div class="section__kicker">Curiosidades</div>
+    <h2 id="curiosidades-heading">Detalhes que poucos conhecem</h2>
+
+    <div class="content-block content-block--figure-right">
+      <div>
+        <h3>Precisão em laboratório</h3>
+        <p>O experimento feito em papel quase sempre resulta em um tom cinza ou bege claro. Para resolver isso, laboratórios modernos de física utilizam o <strong>Disco de LEDs</strong>, que, quando girado rapidamente, faz as cores se tornarem um branco brilhante e perfeito.</p>
+      </div>
+      <figure class="img-slot">
+        <img class="img-slot__img" src="Img9.png" alt="disco de LEDs em rotação, usado em laboratórios modernos.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img9</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> foto de um disco de LEDs girando em um laboratório de física moderno.</p>
+        </div>
+        <figcaption>Fig. 9 — disco de LEDs em rotação, usado em laboratórios modernos.</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-block">
+      <h3>A recepção em 1672</h3>
+      <p>Quando Newton apresentou suas descobertas sobre a luz e as cores em 1672, cientistas renomados o criticaram. Eles acreditavam que o prisma de vidro "sujava" a luz pura do Sol com cores, e não que o branco fosse a soma delas.</p>
+    </div>
+
+    <div class="content-block content-block--figure-right">
+      <div>
+        <h3>Aditiva × subtrativa</h3>
+        <p>Ao girar o disco, nossos olhos fazem uma soma das luzes refletidas <strong>(síntese aditiva)</strong>. Já a mistura de tintas, por exemplo, teria como resultado um marrom ou cinza <strong>(síntese subtrativa)</strong>.</p>
+      </div>
+      <figure class="img-slot">
+        <img class="img-slot__img" src="Img10.png" alt="síntese aditiva × síntese subtrativa.">
+        <div class="img-slot__box">
+          <span class="img-slot__tag">Img10</span>
+          <p class="img-slot__hint"><strong>O que colocar aqui:</strong> diagrama comparando a síntese aditiva da luz (círculos coloridos de luz se sobrepondo em branco) e a síntese subtrativa das tintas (cores se sobrepondo em marrom/preto).</p>
+        </div>
+        <figcaption>Fig. 10 — síntese aditiva × síntese subtrativa.</figcaption>
+      </figure>
+    </div>
+
+    <div class="content-block">
+      <h3>Sete cores, sete notas</h3>
+      <p>Newton escolheu dividir o disco em sete cores por causa de uma crença filosófica da época, associando as cores às sete notas musicais da escala diatônica.</p>
+    </div>
+  </section>
+
+  <!-- ===================== ACESSIBILIDADE ===================== -->
+  <section class="section" id="acessibilidade" aria-labelledby="acessibilidade-heading">
+    <div class="section__kicker">Inclusão e impacto social</div>
+    <h2 id="acessibilidade-heading">Uma piscina — e um site — pensados para incluir todo mundo</h2>
+    <p class="section__intro">Acessibilidade não é só sobre o site: é também sobre quem consegue, de fato, chegar até a borda da piscina e entrar na água com segurança e autonomia. Por isso pensamos os dois lados do projeto.</p>
+
+    <h3>Acessibilidade física da piscina</h3>
+    <div class="access-grid">
+      <div class="access-card"><h4>Elevador hidráulico e rampa</h4><p>Um elevador de piscina e uma rampa de acesso com corrimãos permitem que pessoas com mobilidade reduzida entrem e saiam da água com autonomia e segurança.</p></div>
+      <div class="access-card"><h4>Piso antiderrapante</h4><p>Piso tátil e antiderrapante ao redor de toda a borda, reduzindo o risco de escorregões para todos os frequentadores, com atenção especial a pessoas com baixa visão.</p></div>
+      <div class="access-card"><h4>Sinalização tátil e em Braille</h4><p>Placas com informações em Braille e alto-relevo indicam profundidade, temperatura da água e rotas de circulação para pessoas com deficiência visual.</p></div>
+      <div class="access-card"><h4>Faixas de profundidade contrastantes</h4><p>Marcações de profundidade em cores contrastantes e números grandes, visíveis dentro e fora da água, facilitam a leitura por pessoas com baixa visão.</p></div>
+      <div class="access-card"><h4>Vestiários adaptados</h4><p>Vestiários e banheiros com barras de apoio, espaço para cadeira de rodas e bancos de transferência próximos à piscina.</p></div>
+      <div class="access-card"><h4>Equipe capacitada</h4><p>Salva-vidas e monitores treinados em atendimento inclusivo, prontos para apoiar pessoas com deficiência física, sensorial ou intelectual.</p></div>
+    </div>
+
+    <h3>Acessibilidade digital deste site</h3>
+    <p>Os recursos abaixo estão ativos nesta própria página — teste-os nos botões do cabeçalho.</p>
+    <div class="access-grid">
+      <div class="access-card"><h4>Contraste ajustável</h4><p>O botão "Alto contraste" no cabeçalho ativa uma paleta com contraste ampliado entre texto e fundo, acima do mínimo recomendado pela WCAG 2.1 (AA).</p></div>
+      <div class="access-card"><h4>Texto redimensionável</h4><p>O botão "Texto grande" aumenta a escala tipográfica de toda a página sem quebrar o layout, já que as medidas são relativas (rem), não fixas.</p></div>
+      <div class="access-card"><h4>Texto alternativo</h4><p>Toda imagem informativa do site tem uma descrição textual (atributo <code>alt</code>), lida por leitores de tela para quem não enxerga o conteúdo visual.</p></div>
+      <div class="access-card"><h4>Navegação por teclado</h4><p>Todo botão, link e controle do simulador pode ser alcançado e ativado apenas com o teclado, com indicação visível de foco.</p></div>
+      <div class="access-card"><h4>Hierarquia clara</h4><p>Títulos organizados em ordem lógica (h1 → h2 → h3) e um link de "pular para o conteúdo", que ajudam quem navega com leitor de tela ou teclado a se localizar.</p></div>
+      <div class="access-card"><h4>Movimento respeitoso</h4><p>Animações — como o Disco de Newton girando — são discretas e desativadas automaticamente para quem configura o sistema para reduzir movimento.</p></div>
+    </div>
+  </section>
+
+  <!-- ===================== EQUIPE ===================== -->
+  <section class="section" id="equipe" aria-labelledby="equipe-heading">
+    <div class="section__kicker">Quem fez</div>
+    <h2 id="equipe-heading">Equipe do Projeto Integrador</h2>
+    <p class="section__intro">Turma 2º ano P.</p>
+
+    <div class="team-grid">
+      <div class="team-card">
+        <figure class="img-slot img-slot--avatar">
+          <img class="img-slot__img" src="Img11.png" alt="Foto de Amanda Meyrin">
+          <div class="img-slot__box"><span class="img-slot__tag">Img11</span></div>
+        </figure>
+        <h3>Amanda Meyrin</h3>
+        <p>2º ano P</p>
+      </div>
+      <div class="team-card">
+        <figure class="img-slot img-slot--avatar">
+          <img class="img-slot__img" src="Img12.png" alt="Foto de Beatriz Alves">
+          <div class="img-slot__box"><span class="img-slot__tag">Img12</span></div>
+        </figure>
+        <h3>Beatriz Alves</h3>
+        <p>2º ano P</p>
+      </div>
+      <div class="team-card">
+        <figure class="img-slot img-slot--avatar">
+          <img class="img-slot__img" src="Img13.png" alt="Foto de Daniel Augusto">
+          <div class="img-slot__box"><span class="img-slot__tag">Img13</span></div>
+        </figure>
+        <h3>Daniel Augusto</h3>
+        <p>2º ano P</p>
+      </div>
+      <div class="team-card">
+        <figure class="img-slot img-slot--avatar">
+          <img class="img-slot__img" src="Img14.png" alt="Foto de Rafaela Moraes">
+          <div class="img-slot__box"><span class="img-slot__tag">Img14</span></div>
+        </figure>
+        <h3>Rafaela Moraes</h3>
+        <p>2º ano P</p>
+      </div>
+    </div>
+    <p class="fineprint">O que colocar em Img11–Img14: foto de rosto (retrato) de cada integrante da equipe, no mesmo enquadramento, para manter o grid alinhado.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p><strong>Luz em Ação</strong> — Disco de Newton × Piscina Solar do CEP.</p>
+    <p>Projeto Integrador — CEP, turma 2º ano P · Física e Tecnociência, Programação e Robótica. Um recurso educacional sobre óptica, síntese aditiva da luz, o legado de Isaac Newton e sua aplicação no aquecimento solar.</p>
+    <p>Amanda Meyrin, Beatriz Alves, Daniel Augusto e Rafaela Moraes. Site desenvolvido com HTML, CSS e JavaScript, para fins educacionais.</p>
+    <p class="fineprint">Espaços de imagem: Img1 a Img14 — veja o arquivo LEIA-ME.txt para instruções completas de cada uma.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
